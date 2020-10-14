@@ -3,6 +3,8 @@
 https://github.com/zhangqi-ulua/XlsxToLua
 https://github.com/davyxu/tabtoy
 
+https://github.com/steve0511/resty-redis-cluster
+https://luarocks.org/
 
 feat：新功能（feature）
 fix：修补bug

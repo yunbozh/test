@@ -1,0 +1,92 @@
+Mac	
+g++ -fPIC -dynamiclib -Wl,-undefined,dynamic_lookup -o mylib.so library.cpp
+Linux	
+g++ -shared -fPIC -L/usr/local/lib -llua -o mylib.so library.o 
+
+Linux cmd
+wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46-linux-glibc2.12-x86_64.tar.gz
+
+ssh-keygen -t rsa -C "billy99559955@gamil.com"
+ssh-copy-id root@47.115.2.89
+ssh root@47.115.2.89
+ssh root@10.10.10.103 'cd fishing/3d-server/temp_test; tar -xzvf fish_server.tar.gz'
+scp -r /home/space/music/ root@47.115.2.89:/root/fishing/3d-server
+sshpass -p 密码 scp fish_server.tar.gz root@47.115.2.89:/root/fishing/3d-server
+ 
+
+tar -czvf fish_server.tar.gz ./* --exclude bin --exclude frame_config_endpoint.lua
+tar -xzvf fish_server.tar.gz
+
+# 忽略
+git update-index --assume-unchanged frame_config_endpoint.lua
+# 取消
+git update-index --no-assume-unchanged frame_config_endpoint.lua
+# 创建并切换到本地develop分支
+git checkout -b develop origin/develop
+
+# 在源代码根目录，使用git status命令获取已修改文件的列表
+git status | grep modified | awk '{print $2}' > list.txt
+# 在当前目录下，创建temp目录
+mkdir temp
+# 将已修改文件列表逐一复制到当前目录下的temp目录
+xargs -a ./list.txt cp --parents -t ./temp
+# 将temp目录下的所有文件打包为modules.tar.gz
+cd temp
+tar -czf modules.tar.gz *
+
+
+# 新建会话
+tmux new -s <session-name>
+# 显示会话列表
+tmux ls
+# 接入会话
+tmux attach -t 0
+tmux attach -t <session-name>
+# 结束会话
+tmux kill-session -t 0
+tmux kill-session -t <session-name>
+# 切换会话
+tmux switch -t 0
+tmux switch -t <session-name>
+# 重命名会话
+tmux rename-session -t 0 <new-name>
+
+
+Ctrl+b d：分离当前会话。
+Ctrl+b s：列出所有会话。
+Ctrl+b $：重命名当前会话。
+Ctrl+b x：关闭当前窗格。
+Ctrl+b :：进入命令行。
+
+
+Ctrl+b %：划分左右两个窗格。
+Ctrl+b "：划分上下两个窗格。
+Ctrl+b 箭头：光标切换到其他窗格。比如切换到下方窗格，就按方向键↓。
+Ctrl+b ;：光标切换到上一个窗格。
+Ctrl+b o：光标切换到下一个窗格。
+Ctrl+b {：当前窗格左移。
+Ctrl+b }：当前窗格右移。
+Ctrl+b Ctrl+o：当前窗格上移。
+Ctrl+b Alt+o：当前窗格下移。
+Ctrl+b x：关闭当前窗格。
+Ctrl+b !：将当前窗格拆分为一个独立窗口。
+Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+Ctrl+b Ctrl+<arrow key>：按箭头方向调整窗格大小。
+Ctrl+b q：显示窗格编号。
+
+# 新建一个指定名称的窗口
+tmux new-window -n <window-name>
+# 重命名窗口
+tmux rename-window <new-name>
+
+Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。
+Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。
+Ctrl+b n：切换到下一个窗口。
+Ctrl+b <number>：切换到指定编号的窗口，其中的<number>是状态栏上的窗口编号。
+Ctrl+b w：从列表中选择窗口。
+Ctrl+b ,：窗口重命名。
+
+tmux 嵌套使用 Ctrl+b+b
+
+ctrl+b, :setw synchronize-panes 同步
+
